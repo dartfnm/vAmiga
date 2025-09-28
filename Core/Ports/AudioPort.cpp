@@ -16,6 +16,11 @@
 #include <cmath>
 #include <algorithm>
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264338327950288 /**< pi */
+#endif
+
+
 namespace vamiga {
 
 AudioPort::AudioPort(Amiga& ref, isize objid) : SubComponent(ref, objid)

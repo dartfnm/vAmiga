@@ -33,7 +33,9 @@ add_executable(VAHeadless Headless.cpp config.cpp)
 target_link_libraries(VAHeadless VACore)
 
 # Specify compile options
-target_compile_definitions(VACore PUBLIC _USE_MATH_DEFINES)
+target_compile_definitions(VACore PRIVATE _USE_MATH_DEFINES) #- confilcts with SDL2 M_PI
+target_compile_definitions(VACore PUBLIC MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS=0)
+
 if(WIN32)
   target_link_libraries(VAHeadless ws2_32)
 endif()
